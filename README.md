@@ -54,7 +54,29 @@ To bo:
 - ✅ Konfiguriralo Nginx za HTTPS
 - ✅ Nastavilo avtomatsko obnovo certifikatov (vsakih 12 ur)
 
-## 📦 Struktura projekta
+## �️ Local-first (Tauri) podporo
+
+Projekt vključuje **local-first** Tauri desktop način, ki uporablja iste API-je kot spletna aplikacija, s Tauri IPC klici, kjer je na voljo.
+
+Kaj je že implementirano:
+- `src/lib/tauri-detect.ts` za ugotavljanje Tauri okolja
+- `src/hooks/useCourses-tauri.ts` + podobni hook-i za poskuse `invoke()` (Tauri) in fallback na REST API
+- `src/components/desktop-layout.tsx` kot validacija Tauri IPC stanja
+- `middleware.ts` preskoči rate-limit in CSRF v Tauri dev načinu (`TAURI_ENV_PLATFORM`)
+
+Tauri skripte:
+- `npm run dev:tauri` (zagnan `tauri dev`)
+- `npm run build:tauri` (zagnan `tauri build`)
+- `npm run tauri` (posredni ukaz `tauri`)
+
+Zagon lokalno + Tauri dev:
+1. `npm install`
+2. `npm run dev:next` (štart Next.js server na `localhost:3000`)
+3. `npm run dev:tauri` (odpre Tauri desktop aplikacijo na osnovi `localhost:3000`)
+
+> Če želite samo web izvršljivko: `npm run dev:next` in obiščite `http://localhost:3000`.
+
+## �📦 Struktura projekta
 
 ```
 /ai-portal/

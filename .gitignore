@@ -9,3 +9,4 @@ certbot/
 logs/
 *.log
 prisma/dev.db
+src-tauri/target/

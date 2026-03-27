@@ -104,6 +104,9 @@
   "scripts": {
     "build": "NEXT_PRIVATE_DISABLE_TURBO=1 next build",
     "build:tauri": "npm run tauri build",
+    "build:tauri:linux": "npm run build && npx tauri build --target x86_64-unknown-linux-gnu",
+    "build:tauri:windows": "npm run build && npx tauri build --target x86_64-pc-windows-gnu",
+    "build:tauri:all": "npm run build:tauri:linux && npm run build:tauri:windows",
     "dev": "tsx server.ts",
     "dev:clean": "./start-server.sh",
     "dev:next": "TURBOPACK=0 next dev",

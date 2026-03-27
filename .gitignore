@@ -6,3 +6,6 @@ yarn-error.log
 .DS_Store
 *.pem
 certbot/
+logs/
+*.log
+prisma/dev.db
